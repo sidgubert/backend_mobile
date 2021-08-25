@@ -1,0 +1,32 @@
+version: '3'
+services: 
+    comentarios:
+        build: ./comentarios
+        ports:
+            - "5001:5001"
+        expose:
+            - '5001'
+        volumes:
+            - ./db:/db
+            - ./comentarios:/code    
+        network_mode: bridge    
+    ruas:
+        build: ./ruas
+        ports:
+            - "5002:5002"
+        expose:
+            - '5002'
+        volumes:
+            - ./db:/db
+            - ./ruas:/code    
+        network_mode: bridge    
+    producoes:
+        build: ./producoes
+        ports:
+            - "5003:5003"
+        expose:
+            - '5003'
+        volumes:
+            - ./db:/db
+            - ./producoes:/code    
+        network_mode: bridge
